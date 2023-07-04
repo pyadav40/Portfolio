@@ -15,14 +15,6 @@ const Banner = () => {
   const [text, setText] = useState("");
   const [delta, setDelta] = useState(300 - Math.random() * 100);
   const period = 2000;
-  useEffect(() => {
-    let ticker = setInterval(() => {
-      tick();
-    }, delta);
-    return () => {
-      clearInterval(ticker);
-    };
-  }, [text]);
 
   const tick = () => {
     let i = loopNum % toRotate.length;
@@ -48,6 +40,14 @@ const Banner = () => {
       setIndex((prevIndex) => prevIndex + 1);
     }
   };
+  useEffect(() => {
+    let ticker = setInterval(() => {
+      tick();
+    }, delta);
+    return () => {
+      clearInterval(ticker);
+    };
+  }, []);
   return (
     <section className="banner" id="home">
       <Row className="align-item-center mx-4">
