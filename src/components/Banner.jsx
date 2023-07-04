@@ -47,7 +47,7 @@ const Banner = () => {
     return () => {
       clearInterval(ticker);
     };
-  }, []);
+  }, [delta, tick]);
   return (
     <section className="banner" id="home">
       <Row className="align-item-center mx-4">
